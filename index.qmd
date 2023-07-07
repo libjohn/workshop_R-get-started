@@ -1,0 +1,87 @@
+---
+title: "R workshop - get started"
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC  
+bibliography: references.bib
+---
+
+Let's learn R
+
+-   Basic
+
+    -   RStudio **projects** and **reproducibility** with Quarto
+
+        -   Import and wrangling data
+
+        -   Visualize (plus simple *interactivity*)
+
+        -   Tidy data: *Pivoting* (plus *joining* data frames)
+
+        -   Regression (just barely enough)
+
+    -   An [example of joining data and Exploratory Data Analysis](tidy_tuesday_itra.qmd)
+
+-   Advanced
+
+    -   Interactive visualization with ObservableJS
+
+    -   Custom Functions
+
+    -   Iteration with {purrr}
+
+    -   Tidymodels with {tidymodels}
+
+::: callout-tip
+## Quarto and reproducibility
+
+This is a Quarto website authored with \[R\](https://www.r-project.org/) and the \[RStudio IDE\](https://posit.co/products/open-source/rstudio/). Quarto is part of your reproducible workflow and helps you render your analysis into various formats (PDF, Word, Website, Interactive, etc.) To learn more about Quarto websites visit \<https://quarto.org/docs/websites\>.
+:::
+
+## First steps
+
+1.  Tour of your Local File System
+    -   R / RStudio
+    -   Clone code from GitHub
+2.  Start a new project by importing the github repository for this workshop
+    -   https://github.com/libjohn/foo.git
+3.  Open the `import.qmd` notebook-file from the *Files* tab in the RStudio IDE
+
+## Pipes and Assignment
+
+Some coding syntax is unique in R and the Tidyverse. You will see these symbols frequently.
+
+::: callout-note
+## `<-` Assignment - "*gets value from*"
+
+By convention we use two assignment symbols when creating object names
+
+> `<-` typically used at the beginning of a pipeline or function
+>
+> `=` typically used within the `mutate` function
+
+**Keystroke**:\
+Alt-dash
+
+**Example**:\
+`my_vector <- c(2, 4, 6:9)`
+:::
+
+::: callout-note
+## `%>%` Pipes and pipelines - "*and then*"
+
+We can create *data sentences*, or **pipelines**, by chaining many functions together from left to right.
+
+There are at least three main pipe symbols
+
+> `|>` or `%>%`
+>
+> `+` only used in ggplot2 pipelines
+
+**Keystroke**:\
+Ctrl-shift-M or Cmd-shift-M
+
+**Example:**\
+`cars |> select(speed)`
+:::

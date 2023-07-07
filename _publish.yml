@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: f3132f39-11f1-4267-9be9-ee881027a0a2
+      url: 'https://quartopub.com/sites/libjohn/intro2r-commsci--usc'
