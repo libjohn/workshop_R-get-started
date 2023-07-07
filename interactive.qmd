@@ -33,8 +33,6 @@ ojs_define(trade_df_ojs = trade_df)
 ojs_define(my_df_tall_ojs = satisfaction_df)
 ```
 
-## Interactivity (Observablejs)
-
 This is a very basic example of displaying an interactive visualization using ObservableJS. Select a Question, then repeat after choosing between the *Plot* or *Data* tabs. You'll see the visualizations are reactive to your selections.
 
 ```{ojs}
@@ -125,7 +123,7 @@ This page reveals the observablejs `{ojs}` code-chunks. However, this page demon
 
 ## One more example
 
-The next code-chunk shows a very simple example of ObservableJS `{Plot}` code for visualization. This example *is not interactive,* to show the remarkable similarity to `{ggplot2}` syntax.
+The next code-chunk shows a very simple example of ObservableJS `{Plot}` code for visualization. This example *is not interactive* but it demonstrates the remarkable similarity to `{ggplot2}` syntax.
 
 plot
 
