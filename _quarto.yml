@@ -60,8 +60,6 @@ website:
             href: purrr.qmd            
       - section: Examples
         contents:
-          - text: Quick start
-            href: quick_start.qmd
           - text: Exploratory Data Analysis (EDA)
             href: tidy_tuesday_itra.qmd
 

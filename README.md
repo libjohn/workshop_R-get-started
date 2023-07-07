@@ -23,6 +23,7 @@ Todo
     -   Books (ebooks; epub)
 6.  Finish initeractivity and models on the Example EDA
 7.  Version Control and {usethis} | Git and GitHub | Zenodo archiving | Orchid
-8.  Documentaton -- [?] &| Slides
+8.  Qualtrics data import
+9.  Documentaton -- [?] &| Slides
 -->
 ```
