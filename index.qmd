@@ -45,7 +45,7 @@ This is a Quarto website authored with \[R\](https://www.r-project.org/) and the
     -   R / RStudio
     -   Clone code from GitHub
 2.  Start a new project by importing the github repository for this workshop
-    -   https://github.com/libjohn/foo.git
+    -   <https://github.com/libjohn/workshop_R-get-started.git>
 3.  Open the `import.qmd` notebook-file from the *Files* tab in the RStudio IDE
 
 ## Pipes and Assignment
