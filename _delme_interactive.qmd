@@ -1,0 +1,220 @@
+---
+title: "Interactivity: Quarto & Observable JS"
+
+format: 
+  html:
+    df-print: paged
+    toc: true
+    echo: false
+    warning: false
+    messages: false
+    code-summary: "Show the code"
+    code-tools: true
+---
+
+```{r}
+library(tidyverse)
+library(haven)
+foo_df <- read_sav("data/student_satisfaction_test-data_from_qualtrics.sav")
+satisfaction_df <- foo_df |> janitor::clean_names()
+satisfaction_df <- read_csv(here::here("data", "student_satisfaction_test-data_from_qualtrics.sav"), 
+    col_names = FALSE, skip = 3)
+# my_df_colnames_and_questions <- 
+#   read_csv("data/qualtrics_student_satisfaction-test-data.csv", 
+#            n_max = 1) |> 
+#   janitor::clean_names()
+# my_colnames_vec <- colnames(my_df_colnames_and_questions)
+# colnames(satisfaction_df) <- my_colnames_vec
+trade_df <- read_csv("data/data.csv")
+trade_df <- trade_df |> 
+  filter(str_detect(business, "(Motor|beverage|Electronics)")) |> 
+  mutate(sales = as.integer(sales))
+```
+
+```{r}
+foo_df <- foo_df |> 
+  janitor::clean_names() |> 
+  mutate(across(is.labelled, ~ as_factor(.x), .names = "{.col}_label")) |>
+  # select(sort(tidyselect::peek_vars())) |> 
+  select(response_id, ends_with("_label"), -c(status_label, finished_label)) |> 
+  rename(q15 = q15_label) |> 
+  mutate(q15 = as.double(q15)) |>
+  pivot_longer(-c(response_id, q15), names_to = "my_question", values_to = "response") |> 
+  pull(response) |> 
+  levels()
+foo_df
+```
+
+```{r}
+#| eval: false
+my_q1q4_levels <- rev(c("Extremely helpful", 
+                   "Moderately helpful", 
+                   "Slightly helpful", 
+                   "Neither helpful nor unhelpful",
+                   "Slightly unhelpful", 
+                   "Moderately unhelpful", 
+                   "Extremely unhelpful" ))
+
+my_df_tall <- satisfaction_df |> 
+  select(response_id, q1:last_col()) |> 
+  pivot_longer(-c(response_id, q15), names_to = "my_question", values_to = "response") |> 
+  filter(my_question %in% c("q1", "q4"))  |> 
+  mutate(response = factor(response, levels = my_q1q4_levels)) |> 
+  mutate(rnumber = as.numeric(response))
+```
+
+```{r}
+ojs_define(trade_df_ojs = trade_df)
+# ojs_define(my_df_tall_ojs = my_df_tall)
+ojs_define(my_df_tall_ojs = foo_df)
+```
+
+## Interactivity (Observablejs)
+
+This is a very basic example of diplaying an interactive visualization using ObservableJS.
+
+```{ojs}
+//| panel: input
+//| layout-ncol: 1
+
+// viewof my_question = Inputs.radio(
+//  ["q1", "q4"], 
+//  {  value: "q1", 
+//     label: html`<b>Choose Question</b>`,
+//     multiple: true
+// })
+
+viewof radio_2 = 
+Inputs.radio(
+  new  Map([
+    ["Question One",  'q1'], 
+    ["Question Four", 'q4']
+  ]),
+  {  label: html`<b>Survey results summarized:</b>`,
+     value: 'q1',
+     multiple: true
+})
+```
+
+::: panel-tabset
+## Plot
+
+```{ojs}
+//| code-fold: true
+//| echo: fenced
+
+my_survey_filtered = my_survey
+  .filter(aq.escape(d => d.my_question == radio_2))
+  .groupby('my_question', 'response', 'rnumber')
+  .count()
+  .orderby('my_question', aq.desc('rnumber'))
+  
+Plot.plot({
+  marginRight: 140,
+  y: {
+    axis: null,
+    domain: d3.sort(my_survey_filtered, d => -d.rnumber).map(d => d.response)
+  },
+  x: {
+    grid: true
+  },
+ marks: [
+    Plot.barX(my_survey_filtered, {y: "response", x: "count"}),
+    Plot.text(my_survey_filtered, {
+      x: "count",
+      y: "response",
+      text: "response",
+      textAnchor: "start",
+      dx: 6
+    })
+  ]
+})
+```
+
+## Data
+
+```{ojs}
+my_survey_filtered.view()
+```
+:::
+
+## Download
+
+```{ojs}
+downloadButton(my_survey.objects(), "Qualtrics_test_data.csv")
+```
+
+## Transpose to arquero
+
+Behind the scenes, when rendering this report, I use `{r}` code-chunks to import and wrangle the data. Just like I did in [*code how you like*](basic.html), I'm importing and wrangling my data with a quarto-friendly code language. Then I *transpose* my data frame into an OJS object.
+
+```{ojs}
+//| echo: fenced
+my_data = aq.from(transpose(trade_df_ojs))
+my_survey = aq.from(transpose(my_df_tall_ojs))
+```
+
+::: callout-note
+## Reveal code: click the `</> Code` {{< fa solid code >}} icon
+
+This page reveals the observablejs `{ojs}` code-chunks. However, this page demonstrates using `{r}` and `{ojs}` together in the same quarto-document. You can scroll to the top and click the `</> Code` {{< fa solid code >}} icon to see all the code. Or click the GitHub icon {{< fa brands github >}} in the navigation bar. Quarto makes it easy to include these features.
+:::
+
+## One more example
+
+The next code-chunk shows a very simple example of ObservableJS `{Plot}` code for visualization. This example *is not interactive,* to show the remarkable similarity to `{ggplot2}` syntax.
+
+plot
+
+```{ojs}
+//| echo: fenced
+Plot.plot({
+  marks: [
+    Plot.ruleY([0]),
+    Plot.lineY(my_data_wrangled, {
+      x: "date",
+      y: "sales",
+      stroke: "business"
+    }),
+  ]
+})
+```
+
+::: callout-important
+## ↥ Look up!
+
+Notice the crispness and clarity of the simple non-interactive plot above. [Observable Plot](https://observablehq.com/@observablehq/plot) shows well on the web!
+:::
+
+## Arquero data wrangling
+
+::: gray
+**Derive date**
+
+Aside from the `{dplyr}` wrangling that I did in the background of this code notebook, I still needed to parse the date fields. Arquero to the rescue.
+
+**Arquero**! Now what is that? *Observable JavaScript* is its own coding language and we can minimize the learning curve by keeping our data wrangling within our favorite coding language. **Then** we can focus on using the [{Plot}](https://observablehq.com/plot) grammar and syntax, which is quite similar to `{ggplot2}` -- see the above example. However, [Observable JS](https://quarto.org/docs/interactive/ojs/) is a complete and rich coding language of its own. But just like [{`shiny`}](https://quarto.org/docs/interactive/shiny/), we want to learn just enough to get the job done. Still, there's always an edge case where a little data wrangling is optimal. This is where [`{arquero}`](https://observablehq.com/@uwdata/introducing-arquero) comes in. Arquero is used for data transformation and is easy to learn because it was inspired by `{dplyr}`. *Show the code* for the first plot on this page and you'll see the similarity to `{dplyr}`.
+
+Below I parse a data type using `{arquero}`.
+:::
+
+```{ojs}
+//| echo: fenced
+my_data_wrangled = my_data
+  .derive({  date: d =>  op.parse_date(d.date) })
+```
+
+## Observablejs libraries
+
+By convention, observable libraries are loaded at the bottom of a code notebook. You can read more about observablejs at Observablehq.com. By way of a teaser, I didn't have to use `{r}` to wrangle the retail data. I could have *imported the data directly from observable*. Such as ....
+
+\> `import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"`
+
+But on this page, I'm demonstrating how we leveraged `{R}` and `{ojs}` code with Quarto, so that I can present useful interactivity and demonstrate multi-lingual coding using a Quarto notebook.
+
+```{ojs}
+//| echo: fenced
+import { aq, op } from '@uwdata/arquero'
+// import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"
+import {button as downloadButton} from "@jeremiak/download-data-button"
+```
