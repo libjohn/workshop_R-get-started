@@ -34,7 +34,7 @@ ojs_define(trade_df_ojs = trade_df)
 ojs_define(my_df_tall_ojs = satisfaction_df)
 ```
 
-This is a very basic example of displaying an interactive visualization using ObservableJS. Select a Question, then repeat after choosing between the *Plot* or *Data* tabs. You'll see the visualizations are reactive to your selections.
+This is a very basic example of displaying an interactive visualization using ObservableJS. *Select a question*, repeat. Choose, also, between the *Plot* or *Data* tabs. You'll see the visualizations are reactive to your selections.
 
 ```{ojs}
 //| panel: input

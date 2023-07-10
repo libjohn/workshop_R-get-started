@@ -19,6 +19,7 @@ website:
         aria-label: GitHub
   sidebar:
     style: "floating"
+    collapse-level: 1
     search: false
     contents:
       - section: "Home"
@@ -40,6 +41,8 @@ website:
             href: longer_wider.qmd
           - text: Join data frames
             href: join.qmd
+          - text: EDA
+            href: eda.qmd
       - section: Visualization
         contents:
           - text: Get started with ggplot2

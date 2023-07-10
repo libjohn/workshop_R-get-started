@@ -13,13 +13,13 @@ Remember. R and RStudio are not the same thing. It's a good idea to have up-to-d
 
 ![Download R and RStudio](images/install_r.jpg)
 
-## Install R and RStudio
+## Install R, RStudio, R packages
 
-[Follow this link](https://tutorials.shinyapps.io/00-setup/ "how to install R and RStudio") for a nice interactive tutorial on installing R and RStudio
+I recommend this Interactive [tutorial](https://tutorials.shinyapps.io/00-setup/ "how to install R, RStudio, and packages") for a nice interactive tutorial on installing R, RStudio, packages.
 
 ## Quarto installation
 
-Quarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, just to to [Quarto.org](https://quarto.org/docs/get-started/ "Get Started with Quarto")
+Quarto comes pre-installed with the latest versions of RStudio. However, if you want to install Quarto again, or for use with VSCode, learn how at [Quarto.org](https://quarto.org/docs/get-started/ "Get Started with Quarto")
 
 ## Install packages
 

@@ -1,8 +1,12 @@
 ---
-title: "example EDA"
+title: "Example EDA"
 author: "John Little"
-format: html
-editor: visual
+
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC
+bibliography: references.bib
 ---
 
 ```{r}
@@ -12,19 +16,16 @@ library(tidyverse)
 library(skimr)
 ```
 
--   project
+Basic steps taken in this rough exploration of data....
 
 -   import data
-
 -   wrangle data
-
 -   join data
-
 -   visualize data
 
--   interactivity (See: [Interactivity with Quarto & ObservableJS](https://libjohn.quarto.pub/quarto/observable.html))
+A brief discussion of packages which proport to perform EDA for you can be found in the [Get Started section of this site](eda.html "selective summary of eda packages").
 
--   models (See: [video](https://www.youtube.com/watch?t=1182&v=Wmozk2qEsL0&embeds_euri=https%3A%2F%2Fduke.edu%2F&feature=emb_imp_woyt))
+Note: This page is not intended to teach formal EDA. What happens on this page is merely a brutal re-enactment of some informal explorations that a person might take as they familiarize themselves with new data. If you're like most people, you might want to [skip to the visualizations](#visualize-wrangle-and-summarize). Meanwhile, the sections and code-chunks preceding visualization are valuable and at least worth a glance,
 
 ## Import data
 

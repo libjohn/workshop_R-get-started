@@ -12,19 +12,23 @@ license: CC BY-NC
 bibliography: references.bib
 ---
 
-Often our goal is to reshape our data frame into a *tidy data* [@wickham2014] format, frequently known as **tall data**. We can use the {[tidyr](https://tidyr.tidyverse.org/)} package to reshape data into tall or wide formats. When coding in the tidyverse context, tall data is much easier to iterate over --- without ever writing an for loop or other kind of flow control. Later, in the [advance section, we'll introduce the {purrr} package](purrr.html "purrr") for powerful iteration techniques.
+Often our goal is to reshape our data frame into a *tidy data* [@wickham2014] format frequently known as **tall data**. We can use the {[tidyr](https://tidyr.tidyverse.org/)} package to reshape data into tall or wide formats. When coding in the tidyverse context, tall data is much easier to iterate over --- without ever writing *for* loops or other kind of flow control. Later, in the [advance section, we'll introduce the {purrr} package](purrr.html "purrr") for powerful iteration techniques.
 
-[![Tidy data from the book R for Data Science](images/tidy_data.png){fig-alt="Tidy data"}](images/tidy_data.png)
+[![Image credit: Tidy data from the book \_R for Data Science\_](images/tidy_data.png){fig-alt="Tidy data"}](images/tidy_data.png)
 
-See Also the [*Pivot Vignette*](https://tidyr.tidyverse.org/articles/pivot.html "pivot_longer or pivot_wider"):
+Tidy data
 
--   Make messy data into tidy data
-    -   Every variable is a column
-    -   Every row is an observation
-    -   Every cell is a single value
--   Pivoting (i.e. reshaping)
+-   Every variable is a column
+-   Every row is an observation
+-   Every cell is a single value
+
+Many of the [{dplyr} functions](https://dplyr.tidyverse.org/reference/index.html) help with making data tidy. **Additionally**, in this chapter, we focus on using the [{tidyr} function](https://tidyr.tidyverse.org/reference/index.html): `pivot_longer`, as well as `pivot_wider`.
+
+See Also the [*Pivot Vignette*](https://tidyr.tidyverse.org/articles/pivot.html)
 
 ## Load library packages
+
+we'll load the {tidyverse} meta package which loads eight packges, including {tidyr}.
 
 ```{r}
 #| warning: false
@@ -34,7 +38,7 @@ library(tidyverse)
 
 ## Data
 
-Find practice datasets from the [tidyr](https://tidyr.tidyverse.org/reference/index.html#section-data) package...
+Now that we've loaded {tidyr}, our practice datasets are avaiable in the [tidyr](https://tidyr.tidyverse.org/reference/index.html#section-data) package.
 
 ```{r}
 data(relig_income)
