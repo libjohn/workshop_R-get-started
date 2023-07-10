@@ -22,14 +22,14 @@ website:
     collapse-level: 1
     search: false
     contents:
-      - section: "Home"
+      - section: Home
         contents:
           - href: index.qmd
           - text: Data and code
             href: data.qmd
           - text: Download/install/packages
             href: packages.qmd
-      - section: "Get Started"
+      - section: Get started
         contents:
           - text: Projects (Reproducibility)
             href: proj.qmd
@@ -45,9 +45,11 @@ website:
             href: eda.qmd
       - section: Visualization
         contents:
-          - text: Get started with ggplot2
+          - text: ggplot2
             href: viz.qmd
-          - text: Interactivity
+          - text: plotly | HTML widgets
+            href: widgets.qmd
+          - text: More interactivity {ojs}
             href: interactive.qmd            
       - section: Models/Regression
         contents:

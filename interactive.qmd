@@ -1,15 +1,11 @@
 ---
 title: "Interactivity: Quarto & Observable JS"
 
-format: 
-  html:
-    df-print: paged
-    toc: true
-    echo: false
-    warning: false
-    messages: false
-    code-summary: "Show the code"
-    code-tools: true
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC 
+bibliography: references.bib
 ---
 
 ```{r}

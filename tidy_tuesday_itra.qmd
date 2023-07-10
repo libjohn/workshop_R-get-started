@@ -52,6 +52,10 @@ glimpse(rank_df)
 skim(race_df)
 ```
 
+Read more about automagic [EAD packages](eda.html).
+
+## Freewheelin' EDA
+
 ```{r}
 race_df |> 
   count(country, sort = TRUE) |> 

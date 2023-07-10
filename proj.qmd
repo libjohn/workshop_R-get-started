@@ -9,7 +9,7 @@ bibliography: references.bib
 
 ## RStudio Projects[^1]
 
-[^1]: https://support.posit.co/hc/en-us/articles/200526207-Using-Projects
+[^1]: <https://support.posit.co/hc/en-us/articles/200526207-Using-Projects>
 
 ::: callout-note
 ## R and RStudio are not the same thing --- they go together
@@ -29,7 +29,7 @@ The projects feature of R is useful for keeping project and ideas discrete. Usin
 2.  Choose between **New**, Existing, or Version Control.
 3.  If you choose a New project, there are several options for project types. I recommend starting with **Quarto Project**[^2]
 
-[^2]: Quarto projects are a special subtype of RStudio projects. https://quarto.org/docs/projects/quarto-projects.html
+[^2]: Quarto projects are a special subtype of RStudio projects. [https://quarto.org/docs/projects/quarto-projects.html](https://quarto.org/docs/projects/quarto-projects.htmlhttps://quarto.org/docs/projects/quarto-projects.html)
 
 ::: {layout-ncol="2"}
 [![New Quarto project](images/quarto_project.jpg){fig-alt="New Quarto project" width="250"}](images/quarto_project.jpg)
@@ -65,11 +65,13 @@ Further recommendations on reproducibility suggest setting the following global 
     -   Save workspace to .RData to **NEVER**
     -   Always save history (uncheck)
 
+Read more about the [blank slate approach to reproducibility](https://docs.posit.co/ide/user/ide/get-started/#blank-slate) using the RStudio IDE.
+
 ## Reproducibility
 
 Reproducibility is an that supports from compuational thinking by ensuring all documents, analysis, data, and code are readily available so that the computations can be executed and re-executed to achieve identical results[^3]
 
-[^3]: https://en.wikipedia.org/wiki/Reproducibility
+[^3]: <https://en.wikipedia.org/wiki/Reproducibility>
 
 ::: column-margin
 ![Reproducibility pyramid (Little and Lafferty-Hess, 2023)](images/Little_reproducibility_project_pyramid.jpg){fig-alt="Reproducibility pyramid"}
@@ -90,4 +92,4 @@ Building on these strong foundations increases the chances of archiving your wor
 
 "The `renv` package helps you create **r**eproducible **env**ironments for your R projects." {[renv](https://rstudio.github.io/renv)}
 
-> The `renv` package is a new effort to bring project-local R dependency management to your projects. The goal is for `renv` to be a robust, stable replacement for the [Packrat](https://rstudio.github.io/packrat/) package, with fewer surprises and better default behaviors. --- [Introduction to renv / Kevin Ushey](Introduction to renv by Kevin Ushey "renv package")
+> The `renv` package is a new effort to bring project-local R dependency management to your projects. The goal is for `renv` to be a robust, stable replacement for the [Packrat](https://rstudio.github.io/packrat/) package, with fewer surprises and better default behaviors. --- [Introduction to renv / Kevin Ushey](Introduction%20to%20renv%20by%20Kevin%20Ushey "renv package")
