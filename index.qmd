@@ -36,7 +36,7 @@ Let's learn R
 ::: callout-tip
 ## Quarto and reproducibility
 
-This is a Quarto website authored with \[R\](https://www.r-project.org/) and the \[RStudio IDE\](https://posit.co/products/open-source/rstudio/). Quarto is part of your reproducible workflow and helps you render your analysis into various formats (PDF, Word, Website, Interactive, etc.) To learn more about Quarto websites visit \<https://quarto.org/docs/websites\>.
+This is a [Quarto website](https://quarto.org/docs/websites "quarto website documentation") authored with [R](https://www.r-project.org/ "download R") and the [RStudio IDE](https://posit.co/products/open-source/rstudio/ "Download RStudio"). Quarto is part of your reproducible workflow and helps you render your analysis into various formats (PDF, Word, Website, Interactive, etc.)
 :::
 
 ## First steps
