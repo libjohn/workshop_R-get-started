@@ -473,9 +473,11 @@ library(patchwork)
 
 ## Interactive plots
 
-Use the `ggplotly` function will transform your static ggplot object into an interactive plot. This interactive plot can be used in dashboards and web presentations.
+Use the `ggplotly` function will transform your static ggplot object into an interactive plot for use in dashboards and web presentations. ggplotly[^1] is an example of [HTML widgets for R](https://htmlwidgets.org)[^2], an easy to implement approach that will be explained more in the [next section](widgets.html).
 
-See more at the [Plotly ggplot2 Library](https://plotly.com/ggplot2/) page, and the [*Interactive web-based data visualization with R, plotly, and shiny*](https://plotly-r.com/) book.
+[^1]: See Also: the [Plotly ggplot2 Library](https://plotly.com/ggplot2/) page, and the [*Interactive web-based data visualization with R, plotly, and shiny*](https://plotly-r.com/) book.
+
+[^2]: HTML widgets use JavaScript visualization libraries just by using the R language. The widgets can be embedded into Quarto and R Markdown documents.
 
 ```{r}
 #| label: plotly-example
@@ -486,9 +488,13 @@ library(plotly)
 ggplotly(plot_sleep)
 ```
 
-## Annimate plots
+For more advanced interactivity we'll also explore [ObservableJS](interactive.html).[^3]
 
-Use the `gganimate` package to bring your plot to life through the wonders of animation. Learn more at the resource page for [gganimate](https://gganimate.com/)
+[^3]: Through Quarto you can leverage [ObservableJS](https://observablehq.com/@observablehq/observables-not-javascript), an especially interactive application that is perfect for end-user interactive data exploration.
+
+## Animate plots
+
+Use the {`gganimate`} package to bring your plot to life through the wonders of animation. Learn more at the resource page for [gganimate](https://gganimate.com/)
 
 For Example:
 

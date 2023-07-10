@@ -6,6 +6,16 @@ date-format: long
 
 license: CC BY-NC 
 bibliography: references.bib
+
+format: 
+  html:
+    df-print: paged
+    toc: true
+    echo: false
+    warning: false
+    messages: false
+    code-summary: "Show the code"
+    code-tools: true
 ---
 
 ```{r}
@@ -30,7 +40,7 @@ ojs_define(trade_df_ojs = trade_df)
 ojs_define(my_df_tall_ojs = satisfaction_df)
 ```
 
-This is a very basic example of displaying an interactive visualization using ObservableJS. *Select a question*, repeat. Choose, also, between the *Plot* or *Data* tabs. You'll see the visualizations are reactive to your selections.
+This is a very basic example of displaying an interactive visualization using ObservableJS. Use the drop-down box to test how the plots and tables are reactive to user input.
 
 ```{ojs}
 //| panel: input
@@ -215,3 +225,7 @@ import { aq, op } from '@uwdata/arquero'
 // import { data, advancedDate } from "@observablehq/monthly-retail-trade-report-data"
 // import {button as downloadButton} from "@jeremiak/download-data-button"
 ```
+
+## Examples and documentation
+
+See a [very cool demo at the Quarto-Observable](https://quarto.org/docs/interactive/#observable-js) introduction page. Learn more about this exciting option at the [*Quarto-Observable JS Guide*](https://quarto.org/docs/interactive/ojs/).

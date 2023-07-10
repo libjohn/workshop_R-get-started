@@ -1,0 +1,140 @@
+---
+title: "Iteration with {purrr}"
+
+date-modified: 'today'
+date-format: long
+
+license: CC BY-NC
+bibliography: references.bib
+---
+
+::: {.callout-warning collapse="true"}
+## Review the functions page!
+
+If you have not already read the [functions page](functions.html), do so before reading about {purrr}. The purrr package is about applying functions repetitively. You should have a good idea about what a function is and how to write a custom function.
+:::
+
+From the [functions page](functions.html) we learned scant definitions of functional programming, composing a custom function, and the special conditions of programming with dplyr, which demands that we have a working understanding of the difference between *environment* and *data* variables.[^1] Now we want to apply functions, row-by-row over a data frame. To do that we'll use the purrr package.
+
+[^1]: Links and footnotes on the [functions page](functions.html) will lead to more detailed information on those topics.
+
+Remember that in functional programming we're iterating, or recursing, without using FOR loops. For example, in the [regression page](regression.html#example-of-iterative-modeling-with-nested-categories-of-data), we saw an example of nesting data frames by category (i.e. by *gender*). Now we have two subsetted data frames embeded within a parent-data-frame. The embedded data frames have a data-type of a list-column.
+
+### `nest()` function
+
+To do this subsetting, we use the `nest()` function.
+
+```{r}
+#| warning: false
+#| message: false
+
+library(moderndive)
+library(broom)
+library(tidyverse)
+
+evals |> 
+  janitor::clean_names() |> 
+  nest(data = -gender)
+```
+
+## `map()` function
+
+Now, using {purrr} we can apply a function --- such as a linear model regression `lm()` --- over each row of the parent data frame. To do this, we use the `map_` class of functions. I say class of functions, because map allows us to define the returned data type. Sometimes we want to return a character data type (`map_char`), sometimes an integer (`map_int`), etc. In the case of a linear model, which is a list data-type, we'll use the generic `map()` function to apply an *anonymous function*. **Anonymous functions** are designated by the tilde character: `~`. I'll explain anonymous function after this example.
+
+```{r}
+#| warning: false
+#| message: false
+
+my_subset_df <- evals |> 
+  janitor::clean_names() |> 
+  nest(data = -gender) |> 
+  mutate(my_fit_bty = map(data, ~ lm(score ~ bty_avg, data = .x)))
+my_subset_df
+```
+
+### Look at the fitted object
+
+When we look at the resulting `my_fit_bty` function, we see the kind of output we get from `lm()`
+
+```{r}
+my_subset_df$my_fit_bty
+```
+
+Earlier, we learn to use the `broom::tidy()` function to wrap a fitted model into a data frame[^2]. We can easily `tidy` just the first model.
+
+[^2]: Having our regression model wrapped as a data frame means we use other {dplyr} functions to more easily manipulate our model output.
+
+```{r}
+tidy(my_subset_df$my_fit_bty[[1]])
+```
+
+### Named functions
+
+To tidy all the models, we want to use the `map` function again. This time we use a named function, i.e. `tidy()`.
+
+```{r}
+my_subset_df |> 
+  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy))
+```
+
+The only difference between `my_fit_bty` and `my_fit_bty_tidy` is that `my_fit_bty_tidy` is a data frame. In fact, it's a nested just like `my_subset_df$data` which we nested in the first code-chunk of this page.
+
+To unnest the data frames, use the `unnest()` function. I'll explain *named* and *anonymous* functions later.
+
+```{r}
+my_subset_df |> 
+  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy)) |> 
+  unnest(my_fit_bty_tidy)
+```
+
+Now we have fitted model data, contained within a data frame that we can manipulate further. For example, let's just look at the p-values of `bty_avg`, by `gender`.
+
+```{r}
+my_subset_df |> 
+  mutate(my_fit_bty_tidy = map(my_fit_bty, tidy)) |> 
+  unnest(my_fit_bty_tidy) |> 
+  select(gender, term, p.value) |> 
+  filter(term == "bty_avg")
+```
+
+When we combine linear modeling with other broom functions such as `glance()` and `augment()`, then we can further our analysis and data manipulation.
+
+## Anonymous functions
+
+.x refers to the first argument in the `map()` function. In this case, `.x` is a data frame, so we can use ggplot2 functions to generate our plot.
+
+```{r}
+my_subset_df_with_plots <- my_subset_df |> 
+  mutate(my_plot = map(data, ~ .x |> 
+                         ggplot(aes(bty_avg, score)) + 
+                         geom_point() +
+                         geom_smooth(method = lm, se = FALSE, formula = y ~ x)
+                         )
+         )
+my_subset_df_with_plots
+```
+
+And now we can pull those plots
+
+```{r}
+#| eval: false
+#| echo: true
+my_subset_df_with_plots |> 
+  pull(my_plot)
+  
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Female"
+#|   - "Male"
+
+
+my_subset_df_with_plots$my_plot[[1]]
+
+my_subset_df_with_plots$my_plot[[2]]
+```

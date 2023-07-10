@@ -26,7 +26,7 @@ library(skimr)
 
 ## Data
 
-Data are from the `moderndive` package[^1]. [*Modern dive*](https://moderndive.com/) [@kim2021] and the dplyr package [@Wickham2023].
+Data are from the {`moderndive`} package[^1], [*Modern dive*](https://moderndive.com/) [@kim2021], and the {dplyr} package [@Wickham2023].
 
 [^1]: <https://moderndive.github.io/moderndive/>
 
@@ -176,3 +176,7 @@ my_iterations |>
 my_iterations$my_plot[[1]]  # or `my_iterations$my_plot`
 my_iterations$my_plot[[2]]
 ```
+
+## Next steps
+
+The example above introduces how multiple models can be fitted through the nesting of data. Of course, modeling can be much more complex. A good next step is to gain basic introductions about [tidymodels](tidymodels.html). You'll gain tips on integrating tidyverse principles with modeling, machine learning, feature selection, and tuning. Alternatively, endeavor to increase your skills in iteration using {[purrr](purrr.html)} so you can leverage iteration with [custom functions](functions.html).
