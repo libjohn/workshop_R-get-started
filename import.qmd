@@ -19,7 +19,7 @@ In this workshop we recommend the [Tidyverse](https://tidyverse.org) approach to
 Below are some of the core [*tidyverse*](https://tidyverse.tidyverse.org/) packages. There are many more very handy tidyverse packages.
 
 | package   | use                               | package     | use                           |
-|-----------------|---------------------|-----------------|------------------|
+|------------------|--------------------|------------------|------------------|
 | `dplyr`   | data wrangling                    | `forcats`   | categorical data / factors    |
 | `ggplot2` | visualization                     | `lubridate` | dates and times               |
 | `readr`   | import CSV                        | `stringr`   | regular expressions / strings |
@@ -45,6 +45,12 @@ library(tidyverse)
 ## Import data
 
 In RStudio,, in the Files quadrant and tab, click the `data` folder, then left-click the `brodhead_center.csv` file. Using the context menu, choose the *Import Dataset...* option. Once inside the data wizard, you can paste the necessary code into the code chunk below
+
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/BKDkj7I4L-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
 
 ```{r}
 #| label: import-data

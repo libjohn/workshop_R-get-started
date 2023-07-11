@@ -46,11 +46,15 @@ Join on a **key** that is common across two data frames. For best results use a 
 
 In this case, the key will be the `name` variable that is common to both tables. We're using the `fav_ratings` tibble and the `starwars` tibble.
 
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/GJUcnEV_6O0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
+
 ```{r}
-fav_ratings %>% 
-  # left_join(starwars, by = "name") |> 
-  # left_join(starwars, by = c("name" = "name"))
-  left_join(starwars)  %>%
+fav_ratings  |>  
+  left_join(starwars, by = join_by(name))  |> 
   arrange(desc(fav_rating))
 ```
 
@@ -59,8 +63,8 @@ fav_ratings %>%
 what is in the left table and not the right table.
 
 ```{r}
-anti_join(fav_ratings, starwars) %>% arrange(name)
-anti_join(starwars, fav_ratings) %>% arrange(name)
+anti_join(fav_ratings, starwars) |> arrange(name)
+anti_join(starwars, fav_ratings) |> arrange(name)
 ```
 
 ### semi_join or inner_join
@@ -85,6 +89,12 @@ Regular expressions and {stringr} can be handy when manipulating character varia
 -   str_trim()
 
 -   str_extract()
+
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/UCrYhpGT_B0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
 
 ```{r}
 starwars %>% 

@@ -25,6 +25,12 @@ Quarto comes pre-installed with the latest versions of RStudio. However, if you 
 
 Packages can be installed with the `install.packages()` function. Alternatively, from within RStudio \> Packages \> install
 
+::: column-margin
+```{=html}
+<iframe width="300" height="200" src="https://www.youtube.com/embed/v4tmOymwznQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+```
+:::
+
 ![Install packages](images/install_packages.jpg)
 
 ::: callout-important
