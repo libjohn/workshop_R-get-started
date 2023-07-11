@@ -127,17 +127,17 @@ library(tidyverse)
 my_iterations <- evals |> 
   janitor::clean_names() |> 
   nest(data = -gender) |> 
-  mutate(cor_age = map_dbl(data, ~ cor(.x$score, .x$age))) |> 
-  mutate(cor_bty = map_dbl(data, ~ cor(.x$score, .x$bty_avg)))  |> 
-  mutate(my_fit_bty = map(data, ~ lm(score ~ bty_avg, data = .x) |> 
+  mutate(cor_age = map_dbl(data, \(data) cor(data$score, data$age))) |> 
+  mutate(cor_bty = map_dbl(data, \(data) cor(data$score, data$bty_avg)))  |> 
+  mutate(my_fit_bty = map(data, \(data) lm(score ~ bty_avg, data = data) |> 
                             broom::tidy())) |> 
-  mutate(my_plot = map(data, ~ ggplot(.x, aes(bty_avg, score)) + 
+  mutate(my_plot = map(data, \(data) ggplot(data, aes(bty_avg, score)) + 
                          geom_point(aes(color = age)) +
                          geom_smooth(method = lm, 
                                      se = FALSE,
                                      formula = y ~ x))) |> 
-  mutate(my_plot = map2(my_plot, gender, ~ .x +
-                          labs(title = str_to_title(.y))))
+  mutate(my_plot = map2(my_plot, gender, \(my_plot, gender) my_plot +
+                          labs(title = str_to_title(gender))))
 ```
 
 This generates a data frame consisting of lists columns such as `my_fit_bty` and `my_plot`
@@ -173,6 +173,10 @@ my_iterations |>
 
 ```{r}
 #| echo: false
+#| layout-ncol: 2
+#| fig-cap: 
+#|   - "Female"
+#|   - "Male"
 my_iterations$my_plot[[1]]  # or `my_iterations$my_plot`
 my_iterations$my_plot[[2]]
 ```

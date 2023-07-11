@@ -67,6 +67,8 @@ website:
         contents:
           - text: Exploratory Data Analysis (EDA)
             href: tidy_tuesday_itra.qmd
+          - text: map() 10x Excel files
+            href: map_import_clean_regex.qmd
       - section: Exercises
         contents:
           - text: link-to

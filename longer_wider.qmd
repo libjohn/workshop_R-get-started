@@ -157,7 +157,7 @@ relig_income %>%
              count)) +
   geom_col(show.legend = FALSE) +
   coord_flip() +
-  facet_wrap(~ income, nrow = 2)
+  facet_wrap(vars(income), nrow = 2)
 ```
 
 Another variation. Again, ggplot2 affordances are easier to leverage with tall data.
@@ -183,5 +183,5 @@ relig_income %>%
   geom_col(data = . %>% filter(income == ">150k"),
            fill = "forestgreen") +
   coord_flip() +
-  facet_wrap(~ income, nrow = 2) 
+  facet_wrap(vars(income), nrow = 2) 
 ```

@@ -26,6 +26,10 @@ Blocks of code that can be invoked by the coder to perform fundamental steps.
 
 Functions can accept inputs and yield outputs. If we put a string of functions together we have a more complex function. We may want to apply this complex function to some group of data till we reach the end. In R the basic syntax of a function looks like this
 
+::: column-margin
+<iframe width="300" height="200" src="https://www.youtube.com/embed/EV3pOavW95g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+:::
+
 ```{{r}}
 
 # Define function to add two numbers
@@ -111,7 +115,7 @@ relig_income %>%
   geom_col(data = . %>% filter(income == ">150k"),
            fill = "forestgreen") +
   coord_flip() +
-  facet_wrap(~ income, nrow = 2) 
+  facet_wrap(vars(income), nrow = 2) 
 ```
 
 ## Mapping over a data frame
