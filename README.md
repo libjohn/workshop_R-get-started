@@ -12,17 +12,12 @@ This website is composed in the [RStudio IDE](https://posit.co/download/rstudio-
 <!-- 
 Todo
 
-1.  Functions
-2.  Iteration (purrr) and anonymous functions
-3.  Interactivity with ObservableJS
-4.  Tidymodels (bootstrapping ; regression; sentiment analysis ; web scraping ; )
-5.  Quarto
+1.  Quarto
     -   websites
     -   slides
     -   PDF
     -   Books (ebooks; epub)
-6.  Finish initeractivity and models on the Example EDA
-7.  Version Control and {usethis} | Git and GitHub | Zenodo archiving | Orchid
-8.  Qualtrics data import
+2.  Version Control and {usethis} | Git and GitHub | Zenodo archiving | Orchid
+3. publish pipeline to netlify
 -->
 ```
