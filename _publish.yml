@@ -1,5 +1,4 @@
 - source: project
-  quarto-pub: null
   netlify:
     - id: 77b7ca51-64d2-4322-aa81-165791d19879
       url: 'https://learnr.johnlittle.info'
