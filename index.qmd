@@ -92,6 +92,6 @@ Ctrl-shift-M or Cmd-shift-M
 `cars |> select(speed)`
 :::
 
-## More workshops  🍎
+## More workshops  🍊
 
 [This workshop and many others](https://library.duke.edu/data/workshops) covering topics in data science, visualization, mapping and GIS, and data management are hosted each semester by the **Center for Data and Visualization Sciences** (CDVS). All workshops are recorded with shareable code, data, slides and recordings. You can find the [R-specific resources at our Rfun](https://rfun.library.duke.edu) site. Meanwhile, *all CDVS workshop* materials are available at our [online learning page](https://library.duke.edu/data/workshops) --- including duplicates of the R materials found at Rfun.
