@@ -19,5 +19,6 @@ Todo
     -   Books (ebooks; epub)
 2.  Version Control and {usethis} | Git and GitHub | Zenodo archiving | Orchid
 3. publish pipeline to netlify
+4.  ai-assisted coding with LLMs
 -->
 ```

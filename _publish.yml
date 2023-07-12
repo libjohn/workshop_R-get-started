@@ -1,4 +1,5 @@
 - source: project
   quarto-pub:
-    - id: f3132f39-11f1-4267-9be9-ee881027a0a2
-      url: 'https://quartopub.com/sites/libjohn/intro2r-commsci--usc'
+  netlify:
+    - id: 77b7ca51-64d2-4322-aa81-165791d19879
+      url: 'https://sunny-swan-6c8836.netlify.app'
