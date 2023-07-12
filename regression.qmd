@@ -164,7 +164,7 @@ my_iterations |>
   unnest(my_fit_bty)
 ```
 
-`my_iterations$my_plot` is a list column consisting of ggplot2 objects. We can pull those out of the data frame
+`my_iterations$my_plot` is a list column consisting of ggplot2 objects. We can pull those out of the data frame.
 
 ```{{r}}
 my_iterations |> 

@@ -1,5 +1,6 @@
 ---
-title: "Easy interactive viz with plotly and HTML Widgets"
+title: "Easy interactive viz" 
+subtitle: "{plotly} and other HTML Widgets"
 
 date-modified: 'today'
 date-format: long
@@ -35,7 +36,7 @@ plot_ly(my_df, x = my_df$height, y = my_df$mass,
 
 ## dygraphs
 
-Another HTML widget is {dygraph} for time-series data
+Another HTML widget is {[dygraph](https://rstudio.github.io/dygraphs/)} for time-series data
 
 ```{r}
 library(dygraphs)
@@ -47,8 +48,7 @@ dygraph(nhtemp, main = "New Haven Temperatures") %>%
 
 Using {[`crosstalk`](https://rstudio.github.io/crosstalk/)} for cross widget interaction (linked brushing and filtering) between two HTML widgets. In this example we link {leaflet} and {DT} widgets
 
-:::{.column-page}
-
+::: column-page
 ```{r}
 #| code-fold: true
 #| warning: false
@@ -71,10 +71,13 @@ bscols(
     options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
 )
 ```
+:::
 
 ## reactable
 
-Or use {`reactable`} another easy-to-use interactive data tables package.
+Or use {[`reactable`](https://glin.github.io/reactable/index.html)} another easy-to-use interactive data tables package.
+
+::: column-page
 
 ```{r}
 library(reactable)
@@ -84,7 +87,6 @@ ggplot2::mpg |>
   reactable(searchable = TRUE, minRows = 10)
 
 ```
-
 :::
 
 ## More
