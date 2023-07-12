@@ -1,5 +1,5 @@
 - source: project
-  quarto-pub:
+  quarto-pub: null
   netlify:
     - id: 77b7ca51-64d2-4322-aa81-165791d19879
-      url: 'https://sunny-swan-6c8836.netlify.app'
+      url: 'https://learnr.johnlittle.info'
