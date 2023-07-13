@@ -46,6 +46,10 @@ website:
             href: join.qmd
           - text: EDA
             href: eda.qmd
+      - section: AI-assist code (ChatGPT)
+        contents:
+          - text: How to
+            href: ai.qmd
       - section: Visualization
         contents:
           - text: ggplot2
