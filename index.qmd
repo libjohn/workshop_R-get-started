@@ -7,10 +7,10 @@ license: CC BY-NC
 bibliography: references.bib
 ---
 
-Let's learn R
+Let's learn R 🧠
 
 ::: column-margin
-[![Learning R](images/DALL-E_2023-07-12_learn_R-coding.png)](images/DALL-E_2023-07-12_learn_R-coding.png)
+[![](images/DALL-E_2023-07-13_learn_R.png){fig-alt="Learn R"}](images/DALL-E_2023-07-12_learn_R-coding.png)
 :::
 
 -   Basic
