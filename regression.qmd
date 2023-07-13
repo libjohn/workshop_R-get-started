@@ -116,7 +116,7 @@ broom::augment(score_model)
 
 ## Example of iterative modeling with nested categories of data
 
-In this next example we nest data by the `gender` category, then iterate over those categories using the {purrr} package to `map` *anonymous functions* over our data frames that is nested by our category. Look closely and you'll see correlations, linear model regression, and visualizations, all iterated over the gender category. `map` iteration methods are beyond what we've learned so far, but you can notice how tidy-data and tidyverse principles are leveraged in data wrangling and analysis. In future lessons we'll learn how to employ these techniques along with writing custom functions. The lefthand sidebar of this website has links to learn more about {purrr} and {tidymodels}.
+In this next example we nest data by the `gender` category, then iterate over those categories using the {purrr} package to `map` [*anonymous functions*](purrr.html#anonymous-functions-1) over our data frames that is [nested](purrr.html#nest) by our category. Look closely and you'll see correlations, linear model regression, and visualizations --- iterated over the `gender` category. [purr::map](purrr.html#map) iteration methods are beyond what we've learned so far, but you can notice how tidy-data and tidyverse principles are leveraged in data wrangling and analysis. In future lessons we'll learn how to employ these techniques along with [writing custom functions](functions.html).
 
 ```{r}
 #| message: false
@@ -183,4 +183,4 @@ my_iterations$my_plot[[2]]
 
 ## Next steps
 
-The example above introduces how multiple models can be fitted through the nesting of data. Of course, modeling can be much more complex. A good next step is to gain basic introductions about [tidymodels](tidymodels.html). You'll gain tips on integrating tidyverse principles with modeling, machine learning, feature selection, and tuning. Alternatively, endeavor to increase your skills in iteration using {[purrr](purrr.html)} so you can leverage iteration with [custom functions](functions.html).
+The example above introduces how multiple models can be fitted through the nesting of data. Of course, modeling can be much more complex. A good next step is to gain basic introductions about [tidymodels](tidymodels.html). You'll gain tips on integrating tidyverse principles with modeling, machine learning, feature selection, and tuning. Alternatively, endeavor to increase your skills in iteration using the [purrr](purrr.html) package so you can leverage iteration with [custom functions](functions.html).
