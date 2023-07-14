@@ -90,7 +90,7 @@ Reproducibility is an that supports from compuational thinking by ensuring all d
 
 Developing computation techniques to honor these principles means, whenever possible, reduce or eliminate mouse-clicks, copy/paste steps, and other computational actions. Among other reasons, we do this because such actions are hard to document for ourselves and others.
 
-In this way, using a coding language such as R along with a reproducible publishing scheme such as Quarto, while also incorporating literate coding[@knuth1984], tidy data[@wickham2014], and and tidyverse principles[@wickham2019] is an ideal way to ensure not only the reproducibility of your analysis.
+In this way, using a coding language such as R along with a reproducible publishing scheme such as Quarto, while also incorporating literate coding [@knuth1984], tidy data [@wickham2014], and and tidyverse principles [@wickham2019] is an ideal way to ensure not only the reproducibility of your analysis.
 
 Building on these strong foundations increases the chances of archiving your work for posterity. We have learned this by looking back at the computational workflows of the nineteen seventies through the early two-thousands. Many, if not most of which can no longer be reproduced without excessive retrofitting expense.
 
