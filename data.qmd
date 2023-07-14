@@ -17,7 +17,7 @@ Some data sets are imported via the `read_csv` function. You an download the dat
 
 ## Code
 
-You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the workshop_R-get-started.Rproj file to launch all of the code directly into an RStudio project.
+You an download the data and code from github (See GitHub icon; right-hand side of this webpage header), expand the zipped file. Double click the Intro2R.Rproj file to launch all of the code directly into an RStudio project.
 
 ::: column-margin
 ![](images/github_download.jpg)
@@ -25,7 +25,7 @@ You an download the data and code from github (See GitHub icon; right-hand side 
 
 Or
 
-Use this link to [the GitHub repo](https://github.com/libjohn/workshop_R-get-started.git "github code repo"),
+Use this link to [the GitHub repo](https://github.com/data-and-visualization/Intro2R "github code repo"),
 
 1.  Click the green code button
 2.  Download ZIP
